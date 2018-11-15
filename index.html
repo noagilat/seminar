@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Physical Chemistry Seminar</h1>
+<p id="demo">What is the seminar about?</p>
+<button type="button" onclick="myFunction()">Ask Ronit!</button>
+
+<script>
+function myFunction() {
+	var words_list = ["nanotubes", "materials", "interface", "density",
+					  "nanowire", "solids", "conductors",  "state",
+					  "resonance", "nanoparticles"];
+	var words_conj_list = ["carbon","nano", "solar","quantum",
+                           "optical","thermal", "magnetic"];
+	var sentence_list = ["New x in x for improving x",
+                 "New x in x",
+                 "Novel methods in x and yy-heavy applications",
+                 "Manipulating x with intense yy-x interactions",
+                 "Improvements in yy-x for yy-based applications",
+                 "Optimizing x by x-free x",
+                 "Describing yy-based x in the field of x",
+                 "x as a novel tool for x synthesis",
+                 "Synthetic-based x, a new prospect of x",
+                 "Finding the x: new horizons in x",
+                 "Understanding x: a journey through x",
+                 "Increasing throughput: yy-free designs for accelerated yy-analysis"];
+	var sentence_num = Math.floor(Math.random() * 11);
+	var sentence = sentence_list[sentence_num];
+	while (sentence.includes("x") || sentence.includes("yy")) {
+		var word_num = Math.floor(Math.random() * 10);
+		var word_conj_num = Math.floor(Math.random() * 7);
+		var word = words_list[word_num];
+		var conj_word = words_conj_list[word_conj_num];
+		sentence = sentence.replace("x", word);
+		sentence = sentence.replace("yy", conj_word);
+		sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+	}
+	document.getElementById("demo").innerHTML = sentence;
+}
+</script>
+
+</body>
+</html>
